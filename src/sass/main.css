@@ -1,0 +1,434 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.btn {
+  background-color: #75d0ff !important;
+  color: #fff !important;
+  padding: 0.3em 1em;
+  font-size: 1.1em;
+  margin: 0.3em 0;
+  -webkit-box-shadow: 6px 6px 12px #b6d2d9, -6px -6px 12px #f6ffff;
+          box-shadow: 6px 6px 12px #b6d2d9, -6px -6px 12px #f6ffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 17px;
+}
+
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 92vh;
+  width: 100%;
+  background-color: #d6f7ff;
+}
+
+.landing-page .container {
+  width: 80%;
+  text-align: center;
+  z-index: 999;
+}
+
+.landing-page .container img {
+  width: 35%;
+  margin-bottom: 0.5em;
+}
+
+.landing-page .container .btn {
+  margin-top: 1em;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.wave-img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.intro-slide {
+  min-height: 100vh;
+  background-image: url("../assets/bg1.jpg");
+  background-size: cover;
+  width: 100%;
+}
+
+.intro-slide .slide,
+.intro-slide .carousel-inner,
+.intro-slide .carousel-item,
+.intro-slide .carousel-img {
+  height: 70vh !important;
+}
+
+.intro-slide .carousel-caption {
+  height: auto;
+}
+
+.intro-slide .carousel-indicators li {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: #d6f7ff;
+  -webkit-box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.intro-slide .carousel-indicators .active {
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+  background-color: #75d0ff;
+}
+
+.intro-slide img {
+  width: 20%;
+  margin: auto !important;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
+}
+
+.intro-slide .caption {
+  color: #000;
+}
+
+.intro-slide .btn {
+  min-width: 100px;
+  margin: 0 0.5em;
+}
+
+.user-selection {
+  min-height: 92vh;
+  width: 100%;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.user-selection header {
+  margin-bottom: 2em;
+}
+
+.user-selection header h1 span {
+  color: #75d0ff;
+}
+
+.user-selection .container {
+  width: 100%;
+  text-align: center;
+  z-index: 9999;
+}
+
+.user-selection .container .card {
+  background-color: #d6f7ff;
+  border-radius: 17px;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.user-selection .container .btn {
+  width: 100px;
+  z-index: 999999;
+}
+
+.user-selection .container img {
+  width: 80%;
+  margin: auto;
+}
+
+.clock-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.clock-container p {
+  margin: 0 0.5em;
+}
+
+.login-card {
+  width: 300px;
+  background-color: #fff;
+  padding: 0.5em;
+}
+
+.doctor-panel {
+  min-height: 92vh;
+  background-color: #d6f7ff;
+  padding: 2em 0;
+}
+
+.doctor-panel header {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.doctor-panel header h1 span {
+  color: #75d0ff;
+}
+
+.doctor-panel .login-card {
+  margin: auto;
+}
+
+.doctor-panel .login-card figure {
+  height: 130px;
+  width: 130px;
+  background-color: #d6f7ff;
+  border-radius: 50%;
+  margin: 1em auto;
+}
+
+.doctor-panel .login-card figure img {
+  width: 130px;
+}
+
+.doctor-panel .login-card button {
+  margin-right: 1em;
+}
+
+.back-btn {
+  background-color: #fff;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: 2%;
+  left: 1%;
+  position: fixed;
+}
+
+.doctor-header {
+  background-color: #d6f7ff;
+  padding: 1em;
+  width: 95%;
+  border-radius: 17px;
+  margin: 1em auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.doctor-header figure {
+  height: 400px;
+  width: 400px;
+  margin: 0 1em;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+.doctor-header figure img {
+  width: 100%;
+  border-radius: 17px;
+}
+
+.doctor-header button {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.medical-info {
+  width: 90%;
+  margin: auto;
+  border: 1px solid #75d0ff;
+  border-radius: 17px;
+  padding: 1em;
+  text-align: center;
+}
+
+.medical-info h6 {
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.medical-info h6 .icon {
+  margin-left: 0.32em;
+}
+
+.medical-info img {
+  width: 100px;
+  margin-bottom: 0.5em;
+}
+
+.medical-info h2 {
+  color: #75d0ff;
+}
+
+.availability-card-container {
+  padding: 1em 0.5em;
+}
+
+.availability-card-container h3 {
+  color: #75d0ff;
+  font-weight: bold;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+.availability-card-container .card {
+  margin-bottom: 0.2em;
+  border: none;
+}
+
+.availability-card-container .card .card-inner {
+  background-color: #d6f7ff;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin: auto;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.availability-card-container .card .card-inner img {
+  width: 50px;
+  margin-bottom: 0.3em;
+}
+
+.patient-modal {
+  width: 100%;
+}
+
+.patient-modal .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.3em;
+  border: 3px solid #d6f7ff;
+  padding: 0.5em;
+}
+
+.patient-modal .info img {
+  width: 200px;
+  margin-right: 1em;
+}
+
+.patient-modal .info p {
+  margin: 0;
+}
+
+.patient-modal .info .imp-info {
+  width: 500px;
+  padding: 0.2em;
+  background-color: rgba(255, 255, 0, 0.486);
+  border: 1px solid orange;
+}
+
+.patient-modal .saline {
+  height: 400px;
+  position: relative;
+}
+
+.patient-modal .saline .msg {
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+}
+
+.patient-modal .saline .msg h1 {
+  font-size: 5em;
+  font-weight: bold;
+  color: #75d0ff;
+}
+
+.patient-modal .saline .wave {
+  height: 400px;
+  -webkit-mask-image: url("../assets/infusion.png");
+          mask-image: url("../assets/infusion.png");
+  -webkit-mask-size: 512px 480px;
+          mask-size: 512px 480px;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+/*# sourceMappingURL=main.css.map */
