@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/salinedo/static/css/main.0d020d14.chunk.css",
+    "main.js": "/salinedo/static/js/main.eb8e88b0.chunk.js",
+    "main.js.map": "/salinedo/static/js/main.eb8e88b0.chunk.js.map",
+    "runtime-main.js": "/salinedo/static/js/runtime-main.19259191.js",
+    "runtime-main.js.map": "/salinedo/static/js/runtime-main.19259191.js.map",
+    "static/css/2.08b33097.chunk.css": "/salinedo/static/css/2.08b33097.chunk.css",
+    "static/js/2.d66650a1.chunk.js": "/salinedo/static/js/2.d66650a1.chunk.js",
+    "static/js/2.d66650a1.chunk.js.map": "/salinedo/static/js/2.d66650a1.chunk.js.map",
+    "static/js/3.5252be3a.chunk.js": "/salinedo/static/js/3.5252be3a.chunk.js",
+    "static/js/3.5252be3a.chunk.js.map": "/salinedo/static/js/3.5252be3a.chunk.js.map",
+    "index.html": "/salinedo/index.html",
+    "static/css/2.08b33097.chunk.css.map": "/salinedo/static/css/2.08b33097.chunk.css.map",
+    "static/css/main.0d020d14.chunk.css.map": "/salinedo/static/css/main.0d020d14.chunk.css.map",
+    "static/js/2.d66650a1.chunk.js.LICENSE.txt": "/salinedo/static/js/2.d66650a1.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/salinedo/static/media/patient1.6149696e.jpg",
+    "static/media/doctor.0ab75190.svg": "/salinedo/static/media/doctor.0ab75190.svg",
+    "static/media/doctor.61b71139.png": "/salinedo/static/media/doctor.61b71139.png",
+    "static/media/doctordp.14db69c4.jpg": "/salinedo/static/media/doctordp.14db69c4.jpg",
+    "static/media/doctors.832c3b19.svg": "/salinedo/static/media/doctors.832c3b19.svg",
+    "static/media/hospital-bed.92dda7b0.svg": "/salinedo/static/media/hospital-bed.92dda7b0.svg",
+    "static/media/hospital.f5c40b26.svg": "/salinedo/static/media/hospital.f5c40b26.svg",
+    "static/media/logo.b437b462.png": "/salinedo/static/media/logo.b437b462.png",
+    "static/media/patient.5f8c3e7f.jpg": "/salinedo/static/media/patient.5f8c3e7f.jpg",
+    "static/media/patient.8781af4a.png": "/salinedo/static/media/patient.8781af4a.png",
+    "static/media/saline.96f4fb64.svg": "/salinedo/static/media/saline.96f4fb64.svg",
+    "static/media/slide1.7047d4c8.png": "/salinedo/static/media/slide1.7047d4c8.png",
+    "static/media/slide3.a52d665c.png": "/salinedo/static/media/slide3.a52d665c.png",
+    "static/media/wave.2bf250b8.svg": "/salinedo/static/media/wave.2bf250b8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19259191.js",
+    "static/css/2.08b33097.chunk.css",
+    "static/js/2.d66650a1.chunk.js",
+    "static/css/main.0d020d14.chunk.css",
+    "static/js/main.eb8e88b0.chunk.js"
+  ]
+}
