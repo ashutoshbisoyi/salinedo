@@ -15,13 +15,19 @@ mongoose.connect(process.env.DB_CONNECT,
     () => {
         console.log("Database Connected...");
     });
-
+// middlewares
+app.use(express.json());
 app.use(cors());
+
+// routers
+const authRoute = require('./routes/auth');
 
 app.get('/', (req, res) => {
     res.send("Hello Salindo Backend!");
     res.status(200);
 });
+
+app.use('/api', authRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
