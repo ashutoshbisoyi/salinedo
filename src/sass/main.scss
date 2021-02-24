@@ -1,12 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
-//-------Variables-------
-@mixin center {
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
+
+//-------Mixins-------
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-$primary-color: #75d0ff;
+@mixin align-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin smooth-shadow {
+  box-shadow: 0 1.9px 2.2px rgba(0, 0, 0, 0.006),
+    0 4.6px 5.3px rgba(0, 0, 0, 0.008), 0 8.6px 9.9px rgba(0, 0, 0, 0.01),
+    0 15.4px 17.6px rgba(0, 0, 0, 0.012), 0 28.8px 33px rgba(0, 0, 0, 0.014),
+    0 69px 30px rgba(0, 0, 0, 0.02);
+}
+//-------Variables----------
+$primary-color: #407bff;
+$npc: #1d19f2;
 $light-color: #d6f7ff;
+$white: #fff;
+$ash: #dbdbdb;
+$snow: #f6f6fe;
+$black: #333333;
+$fade-black: #5f5f5f;
 //-------universal stylings-------
 * {
   margin: 0;
@@ -14,71 +37,190 @@ $light-color: #d6f7ff;
   box-sizing: border-box;
   font-family: 'Quicksand', sans-serif;
 }
-.btn {
-  background-color: $primary-color !important;
-  color: #fff !important;
-  padding: 0.3em 1em;
-  font-size: 1.1em;
-  margin: 0.3em 0;
-  box-shadow: 6px 6px 12px #b6d2d9, -6px -6px 12px #f6ffff;
-  border: none;
-  cursor: pointer;
-  border-radius: 17px;
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 .center {
-  @include center();
+  @include flex-center();
 }
+button {
+  border: none;
+  outline: none;
+  transition: all 0.5s ease;
+  padding: 0.3em 1em;
+  border-radius: 17px;
+  cursor: pointer;
+  @include align-center();
+  &:focus {
+    outline: none !important;
+    border: none;
+  }
+}
+button.btn1 {
+  background-color: $primary-color;
+  color: $white;
+  border: 2px solid $white;
+  font-weight: bold;
+  &:hover {
+    background-color: $white;
+    color: $primary-color;
+  }
+  &.active {
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+}
+button.btn2 {
+  background-color: $white;
+  color: $primary-color;
+  font-weight: bold;
+  border: 2px solid $primary-color;
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+.btn-container {
+  @include flex-center();
+  button {
+    margin: auto 0.2em;
+  }
+}
+.icon {
+  margin: 0 0.2em;
+}
+//
+.nav-container {
+  width: 100%;
+  position: fixed;
+  top: 2%;
+  background-color: transparent;
+  z-index: 99;
+  .my-navbar {
+    width: 60%;
+    border: 1px solid $ash;
+    border-radius: 25px;
+    background-color: $white;
+    @include smooth-shadow();
+    margin: auto;
+    padding: 0.2em 1em;
+
+    .navbar-brand {
+      color: $black;
+      font-weight: bold;
+    }
+  }
+}
+
 //-------Page stylings-------
 // landing page
 .landing-page {
-  @include center();
-  min-height: 92vh;
   width: 100%;
-  // background-image: url('../assets/bg2.jpg');
-  // background-size: cover;
-  background-color: $light-color;
-  .container {
-    width: 80%;
-    text-align: center;
-    z-index: 999;
-    img {
-      width: 35%;
-      margin-bottom: 0.5em;
-    }
-    .btn {
-      margin-top: 1em;
-      box-shadow: none;
+  min-height: 100vh;
+  position: relative;
+  @include flex-center();
+  background-image: $white;
+  .content {
+    height: 100%;
+    padding-top: 5em;
+    header {
+      h6 {
+        color: $fade-black;
+        font-size: 1.2em;
+      }
+      h1 {
+        font-size: 3em;
+        margin: 0.2em 0;
+        span {
+          color: $primary-color;
+          font-weight: bold;
+        }
+      }
+      .btn-wrapper {
+        margin-top: 2em;
+        display: flex;
+        button {
+          background-color: $primary-color;
+          color: $white;
+          border-radius: 25px;
+          font-size: 1.2em;
+          box-shadow: 5px 5px 20px #407cff7a;
+          .icon {
+            margin-left: 0.5em;
+          }
+          &.play {
+            margin-left: 1em;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            @include flex-center();
+            box-shadow: 0 0 0 5px #407cff75;
+            animation: pop 1s infinite 0s linear;
+          }
+          &:hover {
+            .icon {
+              animation: floatRight 1s infinite 0s linear;
+            }
+          }
+        }
+      }
     }
   }
+  .image-container {
+    text-align: center;
+  }
+  .svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .bolb1 {
+    width: 400px;
+    position: absolute;
+    top: -15%;
+    left: -8%;
+  }
 }
-.wave-img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-}
-@keyframes gradient {
+//keyframes
+@keyframes floatRight {
   0% {
-    background-position: 0% 50%;
+    transform: translateX(0);
   }
   50% {
-    background-position: 100% 50%;
+    transform: translateX(5px);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translateX(0);
+  }
+}
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 //intro
 .intro-slide {
   min-height: 100vh;
-  background-image: url('../assets/bg1.jpg');
-  background-size: cover;
   width: 100%;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  // background-color: $ash;
   .slide,
   .carousel-inner,
   .carousel-item,
   .carousel-img {
-    height: 70vh !important;
+    height: 80vh !important;
   }
   .carousel-caption {
     height: auto;
@@ -92,8 +234,8 @@ $light-color: #d6f7ff;
     cursor: pointer;
     border: none;
     border-radius: 50%;
-    background-color: $light-color;
-    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    border: 1px solid $primary-color;
+    background-color: $white;
   }
   .carousel-indicators .active {
     width: 15px;
@@ -101,61 +243,97 @@ $light-color: #d6f7ff;
     margin: 10px;
     background-color: $primary-color;
   }
-
-  // .carousel-control-next-icon:after {
-  //   content: '>';
-  //   font-size: 25px;
-  //   color: $primary-color;
-  // }
-  // .carousel-control-prev-icon:after {
-  //   content: '<';
-  //   font-size: 25px;
-  //   color: $primary-color;
-  // }
   img {
     width: 20%;
-    margin: auto !important;
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -40%);
   }
-  .caption {
-    color: #000;
+  h3 {
+    color: $black;
+    font-weight: bold;
   }
-  .btn {
-    min-width: 100px;
-    margin: 0 0.5em;
+  .caption {
+    color: $fade-black;
+    margin-bottom: 1em;
+  }
+  button {
+    width: 130px;
+    @include flex-center();
   }
 }
 //user
 .user-selection {
-  min-height: 92vh;
+  min-height: 100vh;
   width: 100%;
-  padding: 2em 0;
+  background-image: $white;
   text-align: center;
+  .top {
+    background-color: $primary-color;
+    position: relative;
+    height: 30vh;
+    header {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      h1,
+      p {
+        color: $white;
+      }
+    }
+  }
 
+  .or {
+    background-color: $primary-color;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px #407cff75;
+    @include flex-center();
+    h4 {
+      color: $white;
+      margin: 0;
+    }
+  }
   header {
     margin-bottom: 2em;
     h1 {
-      span {
-        color: $primary-color;
-      }
+      color: $primary-color;
+    }
+    p {
+      color: $fade-black;
     }
   }
   .container {
     width: 100%;
+    margin-top: 1em;
     text-align: center;
-    z-index: 9999;
     .card {
-      background-color: $light-color;
+      background-color: rgb(248, 248, 248);
+      border: 2px solid rgba(199, 199, 199, 0.774);
       border-radius: 17px;
       padding: 0.5em;
       cursor: pointer;
+      h4 {
+        color: rgb(141, 141, 141);
+      }
+      &:hover,
+      &.active {
+        border: 2px solid $primary-color;
+        background-color: #74c4e985 !important;
+        h4 {
+          color: $primary-color;
+        }
+      }
     }
-    .btn {
-      width: 100px;
-      z-index: 999999;
+    .tip {
+      color: $fade-black;
+    }
+    button {
+      margin-top: 0.3em;
+      font-weight: bold;
     }
     img {
       width: 80%;
@@ -165,9 +343,10 @@ $light-color: #d6f7ff;
 }
 //clock
 .clock-container {
-  @include center();
+  @include flex-center();
   p {
     margin: 0 0.5em;
+    font-weight: bold;
   }
 }
 //login card
@@ -177,21 +356,34 @@ $light-color: #d6f7ff;
   padding: 0.5em;
 }
 //doctor panel
-.doctor-panel {
-  min-height: 92vh;
-  background-color: $light-color;
+.doctor-login-panel {
+  min-height: 100vh;
+  background-color: $primary-color;
   padding: 2em 0;
+  @include flex-center();
   header {
     margin-bottom: 2em;
     text-align: center;
     h1 {
-      span {
-        color: $primary-color;
+      color: $white;
+      img {
+        margin-left: 0.3em;
       }
+    }
+    p {
+      display: inline-block;
+      width: auto;
+      padding: 0.2em 1em;
+      border-radius: 25px;
+      background-color: $white;
+      color: $fade-black;
+      font-weight: bold;
     }
   }
   .login-card {
     margin: auto;
+    width: 350px;
+    padding: 1em;
     figure {
       height: 130px;
       width: 130px;
@@ -209,75 +401,179 @@ $light-color: #d6f7ff;
 }
 .back-btn {
   background-color: #fff;
+  color: $primary-color;
   height: 45px;
   width: 45px;
   border-radius: 50%;
-  border: 1px solid #000;
-  @include center();
+  border: 2px solid $primary-color;
+  @include flex-center();
   position: absolute;
   bottom: 2%;
   left: 1%;
   position: fixed;
+  transition: all 0.5s ease;
+  &:hover {
+    background-color: $primary-color;
+    color: $ash;
+    border: 2px solid $white;
+  }
+}
+.doctor-main-panel {
+  padding-top: 100px;
 }
 .doctor-header {
-  background-color: $light-color;
-  padding: 1em;
   width: 95%;
-  border-radius: 17px;
-  margin: 1em auto;
-  display: flex;
-  align-items: center;
-  figure {
-    height: 400px;
-    width: 400px;
-    margin: 0 1em;
-    height: min-content;
-    img {
-      width: 100%;
-      border-radius: 17px;
+  margin: 2em auto;
+  .doctor-info {
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    padding: 1em;
+    border-radius: 18px;
+    .image {
+      height: 100%;
+      background-color: $primary-color;
+      background-size: cover;
+      background-position: center;
+    }
+    .content {
+      padding-left: 1em;
+      h4 {
+        color: $black;
+        span {
+          font-weight: bold;
+          color: $primary-color;
+        }
+      }
     }
   }
-  button {
-    box-shadow: none;
+  .call {
+    height: 100%;
+    padding: 1em;
+    text-align: center;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    border-radius: 18px;
+    img {
+      width: 50%;
+      margin-bottom: 1.5em;
+      transition: all 0.5s ease;
+    }
+    button {
+      width: 100%;
+      @include flex-center();
+    }
+    &:hover {
+      img,
+      button {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .calender {
+    height: 100%;
+    padding: 1em;
+    text-align: center;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    border-radius: 18px;
+    img {
+      width: 30%;
+      margin-bottom: 0.5em;
+      transition: all 0.5s ease;
+    }
+    p {
+      margin: 0;
+      font-weight: bold;
+      background-color: $primary-color;
+      color: $white;
+    }
   }
 }
-.medical-info2 {
-  padding: 1em;
-  h3 {
-    padding: 0.2em;
-    background-color: $light-color;
+.patient-info {
+  width: 95%;
+  margin: auto;
+  padding-top: 1em;
+  header {
+    @include flex-between();
+    margin-bottom: 1em;
+    .content {
+      .heading {
+        color: $primary-color;
+      }
+      .desc {
+        color: $fade-black;
+        margin: 0;
+      }
+    }
+    .refresh {
+      button {
+        margin: auto;
+        margin-bottom: 0.5em;
+      }
+      p {
+        margin: 0;
+        color: $fade-black;
+      }
+    }
+    .btn-wrapper {
+      @include flex-center();
+      button {
+        width: 150px;
+        font-size: 1.2em;
+        border: 1px solid $primary-color;
+        background-color: transparent;
+        border-radius: 25px 0 0 25px;
+        &.bt2 {
+          border-radius: 0 25px 25px 0;
+        }
+        &:hover {
+          background-color: $light-color;
+          color: $primary-color;
+        }
+        &.active {
+          background-color: $light-color;
+          color: $primary-color;
+        }
+      }
+    }
   }
-  .img-container {
-    width: 100%;
-    height: 250px;
-    background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.233),
-        rgba(0, 0, 0, 0.233)
-      ),
-      url('../assets//medical.jpg');
-    background-position: center;
-    background-size: cover;
-    @include center();
-    h2,
-    h5 {
-      color: #fff;
-      width: 100%;
-      text-align: center;
+}
+.patient-info-card {
+  border-radius: 9px;
+  padding: 0.8em;
+  margin-bottom: 0.6em;
+  p {
+    margin-bottom: 0.2em;
+  }
+  .tag-container {
+    margin: 0.5em 0;
+    display: flex;
+    span {
+      background-color: $white;
+      margin-right: 0.3em;
+      padding: 0.2em 1.3em;
+      font-size: 13px;
+      @include align-center();
+      border-radius: 3px;
+      color: #6e6e6e;
+      font-weight: bold;
+      .icon {
+        margin: 0 0.2em 0 0;
+        padding: 0;
+      }
     }
   }
 }
 .medical-info {
-  width: 90%;
+  width: 95%;
   margin: auto;
-  border: 1px solid $primary-color;
-  border-radius: 17px;
+  border: 2px solid $primary-color;
+  background-color: #598eff;
+  border-radius: 18px;
   padding: 1em;
   text-align: center;
   h6 {
     text-align: left;
-    display: flex;
-    align-items: center;
+    font-weight: bold;
+    color: $white;
+    @include align-center();
     .icon {
       margin-left: 0.32em;
     }
@@ -287,7 +583,14 @@ $light-color: #d6f7ff;
     margin-bottom: 0.5em;
   }
   h2 {
+    color: $white;
+  }
+  h5 {
+    display: inline-block;
+    background-color: $white;
+    padding: 0.2em 1em;
     color: $primary-color;
+    border-radius: 25px;
   }
 }
 .availability-card-container {
@@ -308,7 +611,7 @@ $light-color: #d6f7ff;
       border-radius: 50%;
       margin: auto;
       border: none;
-      @include center();
+      @include flex-center();
       text-align: center;
       img {
         width: 50px;
@@ -382,6 +685,7 @@ $light-color: #d6f7ff;
       color: violet;
       .hr {
         border: 1px solid violet;
+        width: 320px;
       }
     }
     .ind3 {
@@ -389,6 +693,7 @@ $light-color: #d6f7ff;
       color: orange;
       .hr {
         border: 1px solid orange;
+        width: 280px;
       }
     }
     .ind4 {
@@ -396,6 +701,7 @@ $light-color: #d6f7ff;
       color: red;
       .hr {
         border: 1px solid red;
+        width: 300px;
       }
     }
     .demo-img {
@@ -439,7 +745,7 @@ $light-color: #d6f7ff;
     }
   }
   h5 {
-    @include center();
+    @include flex-center();
     .icon {
       margin-left: 0.3em;
     }
@@ -455,9 +761,57 @@ $light-color: #d6f7ff;
   button {
     margin: 0.2em 1em;
     width: 190px;
-    @include center();
+    @include flex-center();
     .icon {
       margin-right: 0.2em;
     }
+  }
+}
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  backdrop-filter: blur(3px);
+  @include flex-center();
+  z-index: 99999;
+}
+.general-modal {
+  background-color: #fff;
+  min-width: 800px;
+  h3 {
+    margin: 0;
+    padding: 0.5em;
+    @include flex-between();
+    font-size: 1.3em;
+  }
+  .modal-content {
+    padding: 1em 0;
+    text-align: center;
+    .btn-container {
+      button {
+        min-width: 120px;
+        margin: 0 0.3em;
+        border: none;
+        border: 1px solid #0894da;
+        background-color: transparent;
+        color: #0894da;
+        &:hover {
+          background-color: #0894da;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+.danger-alert-modal {
+  img {
+    width: 30%;
+    margin: auto;
+    margin-bottom: 1em;
   }
 }

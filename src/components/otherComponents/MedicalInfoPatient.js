@@ -1,6 +1,4 @@
 import React from 'react';
-import HospitalImg from '../assets/hospital.svg';
-import { InfoCircleTwoTone } from '@ant-design/icons';
 const MedicalInfoPatient = () => {
   return (
     <div className='medical-info2'>

@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, Tag, Progress, Modal, Button, message } from 'antd';
 import { RightCircleTwoTone } from '@ant-design/icons';
-import PatientImg from '../assets/patient.jpg';
-import SalineImg from '../assets/infusion.png';
+import PatientImg from '../../assets/patient.jpg';
+import SalineImg from '../../assets/infusion.png';
 import Wave from 'react-wavify';
-const AllPatientTable = () => {
+import DangerAlertModal from '../Modals/DangerAlertModal';
+const AllPatientTable = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [salineAmount, setSalineAmount] = useState(35);
+  const [salineAmount, setSalineAmount] = useState(15);
   const [salineMessage, setSalineMessage] = useState('');
   const [waveColor, setWaveColor] = useState('#75d0ff');
+  const [dangerModal, setdangerModal] = useState(false);
+  const [dangerPatientList, setdangerPatientList] = useState([]);
 
   const setColor = () => {
     if (salineAmount <= 100) {
@@ -42,10 +45,11 @@ const AllPatientTable = () => {
   const callNurse = () => {
     message.success('Call sent to nurse');
   };
+
   const columns = [
     {
       title: 'Bed No.',
-      width: 100,
+      width: 80,
       dataIndex: 'bedNumber',
       key: 'bedNumber',
       fixed: 'left',
@@ -59,20 +63,20 @@ const AllPatientTable = () => {
     },
     {
       title: 'Age',
-      width: 100,
+      width: 80,
       dataIndex: 'age',
       key: 'age',
       fixed: 'left',
     },
     {
       title: 'Gender',
-      width: 100,
+      width: 80,
       dataIndex: 'gender',
       key: 'gender',
     },
     {
       title: 'Cause',
-      width: 150,
+      width: 120,
       dataIndex: 'cause',
       key: 'cause',
     },
@@ -123,139 +127,57 @@ const AllPatientTable = () => {
     },
   ];
 
-  // const data = [];
-  // for (let i = 0; i < 100; i++) {
-  //   data.push({
-  //     key: i,
-  //     name: `Edrward ${i}`,
-  //     age: 32,
-  //     address: `London Park no. ${i}`,
-  //   });
-  // }
-  const data = [
-    {
-      key: '1',
-      bedNumber: 1,
-      name: 'John Brown',
-      age: 32,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 20,
-      status: 20,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '2',
-      bedNumber: 2,
-      name: 'Sinthal Barik',
-      age: 72,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 50,
-      status: 50,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '3',
-      bedNumber: 3,
-      name: 'John Brown',
-      age: 32,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 30,
-      status: 30,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '4',
-      bedNumber: 4,
-      name: 'Sinthal Barik',
-      age: 72,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 100,
-      status: 100,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '5',
-      bedNumber: 5,
-      name: 'John Brown',
-      age: 32,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 80,
-      status: 80,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '6',
-      bedNumber: 6,
-      name: 'Sinthal Barik',
-      age: 72,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 20,
-      status: 20,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '7',
-      bedNumber: 7,
-      name: 'John Brown',
-      age: 32,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 40,
-      status: 40,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '8',
-      bedNumber: 8,
-      name: 'Sinthal Barik',
-      age: 72,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 20,
-      status: 60,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '9',
-      bedNumber: 9,
-      name: 'John Brown',
-      age: 32,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 20,
-      status: 60,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-    {
-      key: '10',
-      bedNumber: 10,
-      name: 'Sinthal Barik',
-      age: 72,
-      gender: 'Male',
-      cause: 'Dehydration',
-      type: 'Glucose',
-      amount: 20,
-      status: 60,
-      more: <RightCircleTwoTone onClick={showModal} />,
-    },
-  ];
+  let data = [];
+  if (props.data) {
+    data = props.data.map((value, index) => {
+      return {
+        key: value.bedNumber,
+        bedNumber: value.bedNumber,
+        name: value.patientName,
+        age: 25,
+        gender: value.gender,
+        cause: 'Dehydration',
+        type: value.salineSolution,
+        amount: value.amount,
+        status: value.amount,
+        more: <RightCircleTwoTone onClick={showModal} />,
+      };
+    });
+  }
+
+  useEffect(() => {
+    data.map((value, index) => {
+      console.log(value.amount);
+      console.log('list', dangerPatientList);
+      if (value.amount < 20) {
+        if (dangerPatientList.includes(value.bedNumber)) {
+          console.log(value.bedNumber, 'included');
+        } else {
+          setdangerPatientList([...dangerPatientList, value.bedNumber]);
+          console.log('including', value.bedNumber);
+        }
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log('main effect', dangerPatientList);
+    dangerPatientList.length >= 1
+      ? setdangerModal(true)
+      : setdangerModal(false);
+  }, [dangerPatientList]);
+
   return (
     <div>
+      {dangerModal && (
+        <DangerAlertModal
+          patients={dangerPatientList}
+          closeModal={() => {
+            setdangerModal(false);
+            setdangerPatientList([]);
+          }}
+        />
+      )}
       <Table
         columns={columns}
         dataSource={data}
@@ -293,7 +215,8 @@ const AllPatientTable = () => {
           </div>
           <div className='saline'>
             <div className='msg'>
-              <h1>{salineAmount}%</h1>
+              {/* <h1>{salineAmount}%</h1> */}
+              <h1>100%</h1>
               <p>
                 Status:
                 <span style={{ color: waveColor }}>{salineMessage}</span>

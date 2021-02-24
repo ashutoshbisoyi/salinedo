@@ -4,7 +4,6 @@ import {
   SmileOutlined,
 } from '@ant-design/icons';
 import React, { useState } from 'react';
-import PatientImg from '../assets/patient1.jpg';
 const PatientHeader = () => {
   const [visible, setVisible] = useState(false);
   const showDrawer = () => {

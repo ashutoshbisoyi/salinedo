@@ -1,5 +1,5 @@
 import React from 'react';
-import PatientImg from '../assets/patient.png';
+import PatientImg from '../../assets/patient.png';
 import BackButton from '../otherComponents/BackButton';
 import PatientLogin from '../otherComponents/PatientLogin';
 const PatientLoginPanel = () => {

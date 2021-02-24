@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Table, Tag, Progress, Modal, Button, message } from 'antd';
-import { RightCircleTwoTone } from '@ant-design/icons';
-import PatientImg from '../assets/patient.jpg';
-import SalineImg from '../assets/infusion.png';
+import { message } from 'antd';
+import SalineImg from '../../assets/infusion.png';
 import Wave from 'react-wavify';
 const PatientSalineInfo = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

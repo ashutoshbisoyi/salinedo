@@ -7,15 +7,15 @@ import {
   Redirect,
   BrowserRouter as Router,
 } from 'react-router-dom';
-import Landingpage from './interfaceComponents/Landingpage';
-import IntroSlide from './interfaceComponents/IntroSlide';
-import ErrorPage from './interfaceComponents/ErrorPage';
-import UserSelection from './interfaceComponents/UserSelection';
-import NavBar from './interfaceComponents/NavBar';
-import DoctorLoginPanel from './interfaceComponents/DoctorLoginPanel';
-import PatientLoginPanel from './interfaceComponents/PatientLoginPanel';
-import DoctorMainPanel from './interfaceComponents/DoctorMainPanel';
-import PatientMainPanel from './interfaceComponents/PatientMainPanel';
+import Landingpage from './components/pages/Landingpage';
+import IntroSlide from './components/pages/IntroSlide';
+import ErrorPage from './components/pages/ErrorPage';
+import UserSelection from './components/pages/UserSelection';
+import NavBar from './components/otherComponents/NavBar';
+import DoctorLoginPanel from './components/pages/DoctorLoginPanel';
+import PatientLoginPanel from './components/pages/PatientLoginPanel';
+import DoctorMainPanel from './components/pages/DoctorMainPanel';
+import PatientMainPanel from './components/pages/PatientMainPanel';
 
 const App = () => {
   return (
