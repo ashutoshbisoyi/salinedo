@@ -23,10 +23,10 @@ const PatientInfo = () => {
   const patientData = [
     {
       bedNumber: 1,
-      patientName: 'Ashutosh Bisoyi',
+      patientName: 'Sankar Sethi',
       gender: 'male',
       salineSolution: 'Glucose',
-      amount: 60,
+      amount: 10,
     },
     {
       bedNumber: 2,
@@ -182,7 +182,7 @@ const PatientInfo = () => {
           >
             Refresh <SyncOutlined className='icon' spin={spinner} />
           </button>
-          <p>Last refreshed at 12:30 p.m</p>
+          <p>Last refreshed at 10:10 a.m</p>
         </div>
       </header>
       {gridView && (

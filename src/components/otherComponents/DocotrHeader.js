@@ -30,8 +30,8 @@ const DoctorHeader = () => {
               <Col span={20}>
                 <div className='content'>
                   <h4>
-                    <span>Good Morning</span> doctor <span>Ojha</span>, Welcome
-                    to <span>Salinedo</span>
+                    <span>Good Morning</span> doctor <span>Bisoyi</span>,
+                    Welcome to <span>Salinedo</span>
                   </h4>
                   <p>
                     lorem It is a long established fact that a reader will be
@@ -58,8 +58,8 @@ const DoctorHeader = () => {
         <Col md={6}>
           <div className='calender'>
             <img src={calenderImg} alt='calebder' />
-            <h4>Moday</h4>
-            <p>5th January 2020</p>
+            <h4>Thursday</h4>
+            <p>25th Feb 2021</p>
           </div>
         </Col>
       </Row>

@@ -5,7 +5,14 @@ import music from '../../assets/music/siren-slow.mp3';
 import ReactAudioPlayer from 'react-audio-player';
 const DangerAlertModal = (props) => {
   const [ringSiren, setringSiren] = useState(true);
+  // const [audio] = useState(new Audio(music));
+
+  // useEffect(() => {
+  //   ringSiren ? audio.play() : audio.pause();
+  // }, [ringSiren, audio]);
+
   console.log(props.patients);
+
   return (
     <div className='modal-container'>
       {ringSiren && <ReactAudioPlayer src={music} autoPlay />}

@@ -7,7 +7,7 @@ import Wave from 'react-wavify';
 import DangerAlertModal from '../Modals/DangerAlertModal';
 const AllPatientTable = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [salineAmount, setSalineAmount] = useState(15);
+  const [salineAmount, setSalineAmount] = useState(130);
   const [salineMessage, setSalineMessage] = useState('');
   const [waveColor, setWaveColor] = useState('#75d0ff');
   const [dangerModal, setdangerModal] = useState(false);
@@ -216,7 +216,7 @@ const AllPatientTable = (props) => {
           <div className='saline'>
             <div className='msg'>
               {/* <h1>{salineAmount}%</h1> */}
-              <h1>100%</h1>
+              <h1>50%</h1>
               <p>
                 Status:
                 <span style={{ color: waveColor }}>{salineMessage}</span>

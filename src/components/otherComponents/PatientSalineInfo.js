@@ -4,7 +4,7 @@ import SalineImg from '../../assets/infusion.png';
 import Wave from 'react-wavify';
 const PatientSalineInfo = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [salineAmount, setSalineAmount] = useState(10);
+  const [salineAmount, setSalineAmount] = useState(70);
   const [salineMessage, setSalineMessage] = useState('Good');
   const [waveColor, setWaveColor] = useState('#75d0ff');
 
@@ -45,7 +45,7 @@ const PatientSalineInfo = () => {
       <div className='patient-modal'>
         <div className='saline patient-saline'>
           <div className='msg'>
-            <h1>{salineAmount}%</h1>
+            <h1>%</h1>
             <p>
               Status:
               <span style={{ color: waveColor }}>{salineMessage}</span>

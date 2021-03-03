@@ -10,7 +10,7 @@ const DoctorMainPanel = () => {
       <MedicalInfo />
       <DoctorHeader />
       <PatientInfo />
-      <BackButton />
+      {/* <BackButton /> */}
     </div>
   );
 };
