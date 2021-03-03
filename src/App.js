@@ -23,7 +23,7 @@ const App = () => {
       <NavBar />
       <Router>
         <Switch>
-          <Route exact path='/salinedo' component={Landingpage} />
+          <Route exact path='/' component={Landingpage} />
           <Route exact path='/introduction' component={IntroSlide} />
           <Route exact path='/user' component={UserSelection} />
           <Route exact path='/doctor/login' component={DoctorLoginPanel} />
