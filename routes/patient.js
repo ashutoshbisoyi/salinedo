@@ -24,7 +24,7 @@ router.post('/patient', verify, async (req, res) => {
     }
 });
 
-router.put('/patient/:id', async (req, res) => {
+router.get('/patient/:id', async (req, res) => {
     const _id= req.params.id;
     var currentAmount = req.query.amount;
     const data = {

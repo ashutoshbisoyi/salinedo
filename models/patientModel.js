@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const patientSchema = new mongoose.Schema({
+    deviceId: {
+        type: String,
+        unique:true,
+        required: true
+    },
     bedNumber: {
         type: Number,
         required: true
