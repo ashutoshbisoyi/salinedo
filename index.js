@@ -23,6 +23,7 @@ app.use('/public', express.static('public'));
 
 // routers
 const authRoute = require('./routes/auth');
+const patientRoute = require('./routes/patient');
 
 app.get('/', (req, res) => {
     fs.readFile("./public/home.html", 'UTF-8', function (err, html) {
@@ -32,6 +33,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', authRoute);
+app.use('/api', patientRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
