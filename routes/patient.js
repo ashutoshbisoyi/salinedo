@@ -68,7 +68,7 @@ router.delete('/patient/:id', verify, async (req, res) => {
 });
 
 // value update via post
-router.post('/patient/:id', async (req, res) => {
+router.post('/patientvalue/:id', async (req, res) => {
     const _id = req.params.id;
     var currentAmount = req.query.amount;
     const data = {
@@ -84,7 +84,7 @@ router.post('/patient/:id', async (req, res) => {
 });
 
 // value update via get
-router.get('/patient/:id', async (req, res) => {
+router.get('/patientvalue/:id', async (req, res) => {
     const _id = req.params.id;
     var currentAmount = req.query.amount;
     const data = {
@@ -95,6 +95,7 @@ router.get('/patient/:id', async (req, res) => {
         res.status(200).json({ status: 'success' });
     }
     catch (err) {
+        console.log(err);
         return res.status(404).json({ status: 'failed' });
     }
 });
