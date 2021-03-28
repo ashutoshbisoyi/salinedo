@@ -8,6 +8,7 @@ const patientSchema = new mongoose.Schema({
     },
     bedNumber: {
         type: Number,
+        unique:true,
         required: true
     },
     photo: {
@@ -23,6 +24,7 @@ const patientSchema = new mongoose.Schema({
     mobile: {
         type: Number,
         required: true,
+        unique:true,
         min: 10
     },
     age: {
